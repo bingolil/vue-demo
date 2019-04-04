@@ -25,6 +25,9 @@ const router = new Router({
         component: Index,
         children: [{
             path: '',
+            redirect: '/home'
+        }, {
+            path: '/home',
             name: 'home',
             component: Home,
             meta: {
@@ -65,7 +68,6 @@ const router = new Router({
             }
         }],
         beforeEnter: (to, from, next) => { // 路由独享守卫
-            // next({ path: '/login' })
             next(true)
         }
     }, {
@@ -91,14 +93,6 @@ NgProgress.configure({
 /* 全局路由守卫 */
 router.beforeEach((to, from, next) => {
     NgProgress.start();
-    // if (to.name == 'login') { //进入登录页面
-    //     // if (true) {
-    //     //     next();
-    //     // }
-    //     next();
-    // } else {
-    //     next();
-    // }
     next();
 })
 

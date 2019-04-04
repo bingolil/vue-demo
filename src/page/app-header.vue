@@ -9,7 +9,7 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item>
-          <router-link to="/">首页</router-link>
+          <router-link to="/home">首页</router-link>
         </el-menu-item>
         <el-menu-item>
           <router-link to="/product">产品列表</router-link>
@@ -45,5 +45,9 @@ header li.el-menu-item a {
   display: block;
   padding: 0 20px;
   text-decoration:none;
+}
+
+a.router-link-active{
+  background: #007acc;
 }
 </style>
