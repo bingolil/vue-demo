@@ -14,7 +14,7 @@
         <el-menu-item>
           <router-link to="/product">产品列表</router-link>
         </el-menu-item>
-         <el-menu-item>
+        <el-menu-item>
           <router-link to="/console">个人中心</router-link>
         </el-menu-item>
       </el-menu>
@@ -44,10 +44,10 @@ header li.el-menu-item {
 header li.el-menu-item a {
   display: block;
   padding: 0 20px;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-a.router-link-active{
+a.router-link-active {
   background: #007acc;
 }
 </style>

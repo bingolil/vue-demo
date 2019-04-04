@@ -74,7 +74,10 @@ const router = new Router({
     }, {
         path: '*',
         name: 'pageNotFound',
-        component: PageNotFound
+        component: PageNotFound,
+        meta: {
+            title: '路由--网页跑路了'
+        }
     }],
     scrollBehavior() {
         return { x: 0, y: 0 }
