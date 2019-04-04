@@ -24,10 +24,7 @@ const router = new Router({
         path: '/',
         component: Index,
         children: [{
-            path: '',
-            redirect: '/home'
-        }, {
-            path: '/home',
+            path: '/',
             name: 'home',
             component: Home,
             meta: {
@@ -78,7 +75,10 @@ const router = new Router({
         path: '*',
         name: 'pageNotFound',
         component: PageNotFound
-    }]
+    }],
+    scrollBehavior(to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
 })
 
 NgProgress.configure({
