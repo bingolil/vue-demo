@@ -1,0 +1,10 @@
+/* 全局css样式 */
+
+#nprogress .bar {
+    height: 4px;
+    background: #f91834;
+}
+
+a.el-button {
+    text-decoration: none;
+}
