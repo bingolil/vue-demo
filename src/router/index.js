@@ -76,7 +76,7 @@ const router = new Router({
         name: 'pageNotFound',
         component: PageNotFound
     }],
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior() {
         return { x: 0, y: 0 }
     }
 })

@@ -33,7 +33,6 @@
 <script>
 export default {
   name: "ProductList",
-  methods: {},
   data: function() {
     return {
       productListData: [
