@@ -5,7 +5,7 @@
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>产品列表</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-table :data="productListData" style="width: 100%">
+      <el-table :productListData="productListData" style="width: 100%">
         <el-table-column prop="id" label="编号" width="180"></el-table-column>
         <el-table-column prop="name" label="姓名" width="180"></el-table-column>
         <el-table-column prop="sex" label="性别"></el-table-column>
@@ -33,29 +33,21 @@
 <script>
 export default {
   name: "ProductList",
+  created: function() {
+    this.getProductList();
+  },
   data: function() {
     return {
-      productListData: [
-        {
-          id: 113,
-          name: "jack",
-          sex: "男"
-        },
-        {
-          id: 114,
-          name: "lucy",
-          sex: "女"
-        },
-        {
-          id: 115,
-          name: "tom",
-          sex: "男"
-        }
-      ]
+      productListData: []
     };
   },
   methods: {
-    goToDetail(item) {
+    getProductList: function() {
+      this.axios.get('http://localhost:8080/static/productlist.json').then(function(res){
+        // console.log(res)
+      })
+    },
+    goToDetail: function(item) {
       // this.$router.push({
       //   name: "prductDetail",
       //   params: { productDetailId: item.id }
