@@ -4,6 +4,8 @@
 > * [vue/cli 3](https://cli.vuejs.org/zh/)
 > * [element-ui 2.6.3](http://element-cn.eleme.io/#/zh-CN)
 > * [nprogress 0.2.0](http://ricostacruz.com/nprogress/)
+> * [axios 0.18.0](https://www.npmjs.com/package/axios)
+> * [vue-axios 2.1.4](https://www.npmjs.com/package/vue-axios)
 
 # 项目描述
 该项目是一个 vue 语言的 demo，展示经典的项目路由配置（游客部分，个人中心，后台管理）并实现一些功能
