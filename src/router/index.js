@@ -16,6 +16,7 @@ import ConsoleOverView from '../console-page/over-view';
 
 /* 后台 */
 import adminIndex from '../admin-page/index';
+import AdminOverView from '../admin-page/over-view';
 
 Vue.use(Router);
 
@@ -69,8 +70,15 @@ const router = new Router({
         }
     }, {
         path: '/admin',
-        name: 'admin',
-        component: adminIndex
+        component: adminIndex,
+        children: [{
+            path: '',
+            name: 'AdminOverView',
+            component: AdminOverView,
+            meta: {
+                title: '路由--后台总览'
+            }
+        }]
     }, {
         path: '*',
         name: 'pageNotFound',

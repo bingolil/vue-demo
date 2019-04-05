@@ -43,9 +43,25 @@ export default {
   },
   methods: {
     getProductList: function() {
-      this.axios.get('http://localhost:8080/static/productlist.json').then(function(res){
-        // console.log(res)
-      })
+      // this.axios
+      //   .get("http://localhost:8080/static/productlist.json")
+      //   .then(function(res) {
+      //     // console.log(res)
+      //   });
+      this.axios({
+        method: "get",
+        url: "/static/productlist.json",
+        dataType: "json",
+        crossDomain: true,
+        cache: false
+      }).then(
+        // function(res) {
+        //   console.log(res);
+        // },
+        // function(err) {
+        //   console.log(err);
+        // }
+      );
     },
     goToDetail: function(item) {
       // this.$router.push({
