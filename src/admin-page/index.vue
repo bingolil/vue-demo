@@ -66,7 +66,7 @@
 </template>
 <script>
 export default {
-  name: "adminIndex",
+  name: "AdminIndex",
   data: function() {
     return {
       isCollapse: true,

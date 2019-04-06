@@ -1,6 +1,7 @@
 # 各种库的版本
 > * [vue 2.6.6](https://vuejs.bootcss.com/)
 > * [vue-router 3.0.2](https://router.vuejs.org/zh/)
+> * [vueX 3.1.0](https://vuex.vuejs.org/zh/)
 > * [vue/cli 3](https://cli.vuejs.org/zh/)
 > * [element-ui 2.6.3](http://element-cn.eleme.io/#/zh-CN)
 > * [nprogress 0.2.0](http://ricostacruz.com/nprogress/)
