@@ -9,10 +9,10 @@
         </el-menu-item>
         <el-submenu index="1">
           <template slot="title">
-            <i class="el-icon-message"></i>个人中心
+            <i class="el-icon-message"></i>订单管理
           </template>
           <el-menu-item index="1-1">
-            <router-link to="/console/manage-ID">个人身份认证</router-link>
+            <router-link to="/console/order">订单列表</router-link>
           </el-menu-item>
           <el-menu-item index="1-2">
             <router-link to="/console/order-list">订单列表</router-link>

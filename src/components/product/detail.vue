@@ -20,9 +20,9 @@
             <i class="el-icon-back"></i>
             <span>返回</span>
           </a>
-          <p>url参数对象，监听路由实时更新：{{paramsObj}}</p>
-          <a href="/#/product/115">进入115号产品</a>
+          <!-- <p>url参数对象，监听路由实时更新：{{paramsObj}}</p> -->
           <p>props中存param数据：产品id{{productDetailId}}</p>
+          <p>产品信息：{{paramsObj}}</p>
         </div>
       </el-card>
     </el-main>
@@ -39,15 +39,23 @@ export default {
     };
   },
   created: function() {
-    this.paramsObj = this.$route.params;
+    // this.paramsObj = this.$route.params;
+    this.getProductDetialById(this.productDetailId)
   },
   watch: {
     // $route() {
     //   this.paramsObj = this.$route.params;
     // }
   },
+  methods:{
+    getProductDetialById(id){
+      this.axios.get('http://localhost:3000/product',{params:{id:id}}).then((res)=>{
+        // console.log(res);
+        this.paramsObj=res.data[0];
+      })
+    }
+  },
   beforeRouteUpdate(to, from, next) {
-    // console.log(to);
     this.paramsObj = to.params;
     next(true);
   }

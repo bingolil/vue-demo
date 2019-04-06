@@ -10,9 +10,13 @@ import ProductDetail from '../components/product/detail';
 import PageNotFound from '../page/page-not-found';
 import Login from '../page/login';
 
+/* 购物车 */
+import Cart from '../components/cart/list';
+
 /* 个人中心 */
 import ConsoleIndex from '../console-page/index';
 import ConsoleOverView from '../console-page/over-view';
+import ConsoleOrder from '../components/order/list';
 
 /* 后台 */
 import adminIndex from '../admin-page/index';
@@ -53,6 +57,16 @@ const router = new Router({
             meta: {
                 title: '路由学习--产品详情'
             }
+        }, {
+            path: 'Cart',
+            name: 'Cart',
+            component: Cart,
+            meta: {
+                title: '购物车'
+            },
+            beforeEnter: (to, from, next) => {
+                next()
+            }
         }]
     }, {
         path: '/console',
@@ -63,6 +77,13 @@ const router = new Router({
             component: ConsoleOverView,
             meta: {
                 title: '路由--个人中心'
+            }
+        }, {
+            path: 'order',
+            name: 'ConsoleOrder',
+            component: ConsoleOrder,
+            meta: {
+                title: '个人中心--订单列表'
             }
         }],
         beforeEnter: (to, from, next) => { // 路由独享守卫
@@ -87,7 +108,7 @@ const router = new Router({
             title: '路由--网页跑路了'
         }
     }],
-    scrollBehavior() {
+    scrollBehavior() { // 页面跳转，滚动到页面顶部
         return { x: 0, y: 0 }
     }
 })

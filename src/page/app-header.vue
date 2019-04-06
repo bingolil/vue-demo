@@ -15,6 +15,9 @@
           <router-link to="/product">产品列表</router-link>
         </el-menu-item>
         <el-menu-item>
+          <router-link to="/Cart">购物车</router-link>
+        </el-menu-item>
+        <el-menu-item>
           <router-link to="/console">个人中心</router-link>
         </el-menu-item>
       </el-menu>
