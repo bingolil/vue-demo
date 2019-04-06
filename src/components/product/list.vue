@@ -5,10 +5,10 @@
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>产品列表</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-table :productListData="productListData" style="width: 100%">
+      <el-table :data="productData" style="width: 100%">
         <el-table-column prop="id" label="编号" width="180"></el-table-column>
-        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-        <el-table-column prop="sex" label="性别"></el-table-column>
+        <el-table-column prop="name" label="名称"></el-table-column>
+        <el-table-column prop="price" label="价格（RMB/元）"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="props">
             <el-button icon="el-icon-edit" type="primary" size="mini">编辑</el-button>
@@ -38,30 +38,14 @@ export default {
   },
   data: function() {
     return {
-      productListData: []
+      productData: []
     };
   },
   methods: {
     getProductList: function() {
-      // this.axios
-      //   .get("http://localhost:8080/static/productlist.json")
-      //   .then(function(res) {
-      //     // console.log(res)
-      //   });
-      this.axios({
-        method: "get",
-        url: "/static/productlist.json",
-        dataType: "json",
-        crossDomain: true,
-        cache: false
-      }).then(
-        // function(res) {
-        //   console.log(res);
-        // },
-        // function(err) {
-        //   console.log(err);
-        // }
-      );
+      this.axios.get("http://localhost:3000/product").then(res => {
+        this.productData = res.data;
+      });
     },
     goToDetail: function(item) {
       // this.$router.push({
