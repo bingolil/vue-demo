@@ -144,11 +144,11 @@ NgProgress.configure({
 /* 全局路由守卫 */
 router.beforeEach((to, from, next) => {
     NgProgress.start();
-    if (to.meta.requireAuth) {
-        if (store.state.person.token) {
+    if (to.meta.requireAuth) { // 是否需要守卫
+        if (store.state.person.token) { // 检测是否有权限
             next();
         } else {
-            // next('/login');
+            // next('/login',{query:{redirect:to.fullpath}});
             next();
         }
     } else if (to.meta.adminRequireAuth) {

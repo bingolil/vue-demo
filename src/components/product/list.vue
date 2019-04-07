@@ -65,7 +65,7 @@ export default {
           this.loading = false,
           this.$notify.error({
             title: "错误",
-            message: "获取产品随便，请刷新页面"
+            message: "获取产品失败，请刷新页面"
           });
         }
       );
