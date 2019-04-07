@@ -1,7 +1,5 @@
 <template>
-  <div id="login-wrapest">
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>

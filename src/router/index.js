@@ -28,6 +28,7 @@ import AdminOverView from '../admin-page/over-view';
 import LoginLayout from '../components/login/index';
 import Login from '../components/login/front';
 import AdminLogin from '../components/login/admin';
+import Register from '../components/login/register';
 
 Vue.use(Router);
 
@@ -64,6 +65,13 @@ const router = new Router({
             meta: {
                 title: '购物车',
                 requireAuth: true
+            }
+        }, {
+            path: 'register',
+            name: 'Register',
+            component: Register,
+            meta: {
+                title: '请用户登录'
             }
         }]
     }, {
