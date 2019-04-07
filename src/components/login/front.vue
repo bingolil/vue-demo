@@ -116,7 +116,7 @@ div.register a {
   text-decoration: none;
 }
 
-div.register a:hover{
+div.register a:hover {
   text-decoration: underline;
 }
 
@@ -141,11 +141,11 @@ div.register a:hover{
   color: #fff;
 }
 
-/* @media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {
   * {
     box-sizing: border-box;
   }
-  .dowebok {
+  div.login-wrap {
     position: static;
     width: auto;
     height: auto;
@@ -153,17 +153,17 @@ div.register a:hover{
     border: 0;
     border-radius: 0;
   }
-  .logo {
+  div.login-logo {
     margin: 50px auto;
   }
-  .form-item {
+  div.login-item {
     width: auto;
   }
-  .form-item input,
-  .form-item button,
-  .reg-bar {
+  div.login-item input,
+  div.login-item button,
+  div.register {
     width: 100%;
   }
-} */
+}
 </style>
 
