@@ -3,7 +3,7 @@
     <div class="login-wrap">
       <div class="login-logo"></div>
       <div class="login-item">
-        <input id="username" type="text" autocomplete="off" placeholder="邮箱">
+        <input id="username" v-focus type="text" autocomplete="off" placeholder="邮箱">
       </div>
       <div class="login-item">
         <input id="password" type="password" autocomplete="off" placeholder="登录密码">
@@ -33,6 +33,13 @@ export default {
   name: "Login",
   data: function() {
     return {};
+  },
+  directives:{
+    focus:{
+      inserted:function(el){
+        el.focus();
+      }
+    }
   }
 };
 </script>
@@ -124,21 +131,25 @@ div.register a:hover {
   font-size: 18px;
   line-height: 1.4;
   color: #fff;
+  line-height: 48px;
 }
 #login :-moz-placeholder {
   font-size: 18px;
   line-height: 1.4;
   color: #fff;
+  line-height: 48px;
 }
 #login ::-moz-placeholder {
   font-size: 18px;
   line-height: 1.4;
   color: #fff;
+  line-height: 48px;
 }
 #login :-ms-input-placeholder {
   font-size: 18px;
   line-height: 1.4;
   color: #fff;
+  line-height: 48px;
 }
 
 @media screen and (max-width: 500px) {
