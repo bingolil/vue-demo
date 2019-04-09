@@ -50,6 +50,10 @@ header {
   background-color: rgb(84, 92, 100);
 }
 
+ul.el-menu{
+  border-bottom: 0px;
+}
+
 header li.el-menu-item {
   padding: 0;
 }
