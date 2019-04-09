@@ -1,12 +1,25 @@
 <template>
-  <div id="login">
+  <div id="login" :style="loginWrapStyle">
     <div class="login-wrap">
-      <div class="login-logo"></div>
+      <div class="login-logo" :style="loginLogoStyle"></div>
       <div class="login-item">
-        <input id="username" v-focus type="text" autocomplete="off" placeholder="邮箱">
+        <input
+          id="username"
+          :style="usernameStyle"
+          v-focus
+          type="text"
+          autocomplete="off"
+          placeholder="邮箱"
+        >
       </div>
       <div class="login-item">
-        <input id="password" type="password" autocomplete="off" placeholder="登录密码">
+        <input
+          id="password"
+          :style="passwordStyle"
+          type="password"
+          autocomplete="off"
+          placeholder="登录密码"
+        >
       </div>
       <div class="login-item">
         <button class="sub">登录</button>
@@ -32,11 +45,31 @@
 export default {
   name: "Login",
   data: function() {
-    return {};
+    return {
+      loginWrapStyle: {
+        backgroundImage: "url(" + require("@/assets/images/loginBg.png") + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "50% 50%"
+      },
+      loginLogoStyle: {
+        backgroundImage: "url(" + require("@/assets/images/login-logo.png") + ")",
+        backgroundRepeat: "no-repeat"
+      },
+      usernameStyle: {
+        backgroundImage: "url(" + require("@/assets/images/email.png") + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "20px 14px"
+      },
+      passwordStyle: {
+        backgroundImage: "url(" + require("@/assets/images/password.png") + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "20px 14px"
+      }
+    };
   },
-  directives:{
-    focus:{
-      inserted:function(el){
+  directives: {
+    focus: {
+      inserted: function(el) {
         el.focus();
       }
     }
@@ -47,8 +80,6 @@ export default {
 <style scoped>
 div#login {
   height: 100%;
-  background: #fff url("http://localhost:8080/img/loginBg.png") 50% 50%
-    no-repeat;
   background-size: cover;
   min-height: 550px;
 }
@@ -69,7 +100,6 @@ div.login-logo {
   width: 104px;
   height: 104px;
   margin: 50px auto 80px;
-  background: url("http://localhost:8080/img/login-logo.png") 0 0 no-repeat;
 }
 
 div.login-item {
@@ -89,14 +119,6 @@ div.login-item input {
   color: #fff;
   background-color: transparent;
   outline: none;
-}
-
-#username {
-  background: url("http://localhost:8080/img/email.png") 20px 14px no-repeat;
-}
-
-#password {
-  background: url("http://localhost:8080/img/password.png") 20px 14px no-repeat;
 }
 
 button.sub {
