@@ -42,14 +42,14 @@ const router = new Router({
             name: 'home',
             component: Home,
             meta: {
-                title: '路由学习--首页'
+                title: 'vue-demo--首页'
             }
         }, {
             path: 'product',
             name: 'product',
             component: ProductList,
             meta: {
-                title: '路由学习--产品列表'
+                title: 'vue-demo--产品列表'
             }
         }, {
             path: 'product/:productDetailId',
@@ -57,14 +57,14 @@ const router = new Router({
             component: ProductDetail,
             props: true,
             meta: {
-                title: '路由学习--产品详情'
+                title: 'vue-demo--产品详情'
             }
         }, {
             path: 'Cart',
             name: 'Cart',
             component: Cart,
             meta: {
-                title: '购物车',
+                title: 'vue-demo--购物车',
                 requireAuth: true
             }
         }, {
@@ -72,7 +72,7 @@ const router = new Router({
             name: 'Register',
             component: Register,
             meta: {
-                title: '请用户登录'
+                title: 'vue-demo--请用户登录'
             }
         }]
     }, {
@@ -83,7 +83,7 @@ const router = new Router({
             name: 'AdminLogin',
             component: AdminLogin,
             meta: {
-                title: '欢迎登录admin路由管理'
+                title: 'vue-demo--欢迎登录admin路由管理'
             }
         }]
     }, {
@@ -94,7 +94,7 @@ const router = new Router({
             name: 'Login',
             component: Login,
             meta: {
-                title: '请用户登录'
+                title: 'vue-demo--请用户登录'
             }
         }]
     }, {
@@ -105,7 +105,7 @@ const router = new Router({
             name: 'ConsoleOverView',
             component: ConsoleOverView,
             meta: {
-                title: '路由--个人中心',
+                title: 'vue-demo--个人中心',
                 requireAuth: true
             }
         }, {
@@ -113,7 +113,7 @@ const router = new Router({
             name: 'ConsoleOrder',
             component: ConsoleOrder,
             meta: {
-                title: '个人中心--订单列表',
+                title: 'vue-demo--个人中心--订单列表',
                 requireAuth: true
             }
         }]
@@ -125,7 +125,7 @@ const router = new Router({
             name: 'AdminOverView',
             component: AdminOverView,
             meta: {
-                title: '路由--后台总览',
+                title: 'vue-demo--后台总览',
                 adminRequireAuth: true
             }
         }]
@@ -134,7 +134,7 @@ const router = new Router({
         name: 'pageNotFound',
         component: PageNotFound,
         meta: {
-            title: '路由--网页跑路了'
+            title: 'vue-demo--网页跑路了'
         }
     }],
     scrollBehavior() { // 页面跳转，滚动到页面顶部
