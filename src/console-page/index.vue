@@ -22,6 +22,7 @@
     </el-aside>
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
+        <el-button v-on:click="logOut">退出</el-button>
         <router-link to="/">首页</router-link>
         <span style="padding-left:80px;">王小虎</span>
       </el-header>
@@ -39,6 +40,12 @@ export default {
     return {
       defaultOpen: []
     };
+  },
+  methods:{
+    logOut:function(){
+      this.$store.commit('person/LogOut');
+      this.$router.push({path:'/'});
+    }
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {

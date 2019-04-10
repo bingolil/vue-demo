@@ -6,6 +6,7 @@
         <input
           id="username"
           :style="usernameStyle"
+          v-model="user.email"
           v-focus
           type="text"
           autocomplete="off"
@@ -16,13 +17,14 @@
         <input
           id="password"
           :style="passwordStyle"
+          v-model="user.password"
           type="password"
           autocomplete="off"
           placeholder="登录密码"
         >
       </div>
       <div class="login-item">
-        <button class="sub">登录</button>
+        <button class="sub" v-on:click="loginIn">登录</button>
       </div>
       <div class="register">
         <el-row>
@@ -42,18 +44,23 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Login",
   data: function() {
     return {
+      nextPath: this.$route.query.redirect,
+      user: {
+        email: "",
+        password: ""
+      },
       loginWrapStyle: {
-        backgroundImage: "url(" + require("@/assets/images/loginBg.png") + ")",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "50% 50%"
+        backgroundImage: "url(" + require("@/assets/images/loginBg.png") + ")"
       },
       loginLogoStyle: {
-        backgroundImage: "url(" + require("@/assets/images/login-logo.png") + ")",
-        backgroundRepeat: "no-repeat"
+        backgroundImage:
+          "url(" + require("@/assets/images/login-logo.png") + ")"
       },
       usernameStyle: {
         backgroundImage: "url(" + require("@/assets/images/email.png") + ")",
@@ -66,6 +73,21 @@ export default {
         backgroundPosition: "20px 14px"
       }
     };
+  },
+  computed: {
+    ...mapMutations({})
+  },
+  methods: {
+    loginIn: function() {
+      // 写入本地存储
+      this.$store.commit('person/setUser',{name:'zengbin'});
+      this.$store.commit('person/setToken','x-y-z');
+      if (this.nextPath) {
+        this.$router.push({ path: this.nextPath });
+      } else {
+        this.$router.push({ path: "/console" });
+      }
+    }
   },
   directives: {
     focus: {
@@ -80,6 +102,7 @@ export default {
 <style scoped>
 div#login {
   height: 100%;
+  background: no-repeat 50% 50%;
   background-size: cover;
   min-height: 550px;
 }
@@ -100,6 +123,7 @@ div.login-logo {
   width: 104px;
   height: 104px;
   margin: 50px auto 80px;
+  background: no-repeat;
 }
 
 div.login-item {

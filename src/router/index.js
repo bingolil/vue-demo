@@ -72,7 +72,7 @@ const router = new Router({
             name: 'Register',
             component: Register,
             meta: {
-                title: 'vue-demo--请用户登录'
+                title: 'vue-demo--请用户注册'
             }
         }]
     }, {
@@ -94,7 +94,8 @@ const router = new Router({
             name: 'Login',
             component: Login,
             meta: {
-                title: 'vue-demo--请用户登录'
+                title: 'vue-demo--请用户登录',
+                requireAuth: true
             }
         }]
     }, {
@@ -152,15 +153,24 @@ NgProgress.configure({
 
 /* 全局路由守卫 */
 router.beforeEach((to, from, next) => {
+    const regxFront = /\/login/;
     NgProgress.start();
-    if (to.meta.requireAuth) { // 是否需要守卫
-        if (store.state.person.token) { // 检测是否有权限
-            next();
+    if (to.meta.requireAuth) { // 用户端守卫
+        if (!!sessionStorage.getItem('token')) { // 检测是否有权限
+            if (regxFront.test(to.fullPath)) {
+                next('/console')
+            } else {
+                next();
+            }
+        } else if (!sessionStorage.getItem('token') && regxFront.test(to.fullPath)) {
+            next(); // 没有用户端权限且需要进入 login
         } else {
-            // next('/login',{query:{redirect:to.fullpath}});
-            next();
+            next({ // 没有用户端权限，且需要进入有权限页面
+                path: '/login',
+                query: { redirect: to.fullPath }
+            });
         }
-    } else if (to.meta.adminRequireAuth) {
+    } else if (to.meta.adminRequireAuth) { // 管理员端守卫
         if (store.state.admin.token) {
             next();
         } else {
