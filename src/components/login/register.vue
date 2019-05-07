@@ -8,7 +8,21 @@
     <el-row>
       <el-col :span="18" :offset="3">
         <el-card class="box-card">
-          <div v-for="o in 4" :key="o" class="text item">{{'列表内容 ' + o }}</div>
+          <el-row>
+            <el-col :span="8" :offset="8">
+              <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item label="邮箱">
+                  <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                 <el-form-item label="密码">
+                  <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                 <el-form-item label="邮ll箱">
+                  <el-input v-model="form.name"></el-input>
+                </el-form-item>
+              </el-form>
+            </el-col>
+          </el-row>
         </el-card>
       </el-col>
     </el-row>
@@ -21,13 +35,16 @@ export default {
   data: function() {
     return {
       setp: 0,
-      user:{
-          name:'',
-          phoneNumber:'',
-          email:'',
-          pass:''
-      },
-      subpass:''
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      }
     };
   }
 };

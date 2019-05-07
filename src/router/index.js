@@ -131,7 +131,7 @@ const router = new Router({
             }
         }]
     }, {
-        path: '*',
+        path: '**',
         name: 'pageNotFound',
         component: PageNotFound,
         meta: {
